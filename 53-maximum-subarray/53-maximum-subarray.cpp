@@ -22,11 +22,15 @@ public:
         
         for (int i = 0; i < n; i++){
             
-        currSum = currSum + nums[i];
+            currSum = currSum + nums[i];
             
-            if(currSum>maxSum) maxSum=currSum;
-            if(currSum<0) currSum = 0;
+            if(currSum>maxSum) {
+                maxSum = currSum;
+            }
             
+            if(currSum<0) {
+                currSum = 0;
+            }
         }
         
     return maxSum;
