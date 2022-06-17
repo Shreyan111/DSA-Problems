@@ -16,7 +16,7 @@ class Solution
         st.push(arr[n-1]); //4 3
         ans.push_back(-1); //-1 4 4 3
         
-        for(int i = n-2; i>=0; i--)
+        for(int i = n-2; i >= 0; i--)
         {
             while(!st.empty() &&  st.top() < arr[i])
                 st.pop();
