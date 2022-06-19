@@ -1,5 +1,7 @@
 class Solution {
 public:
+    
+    //recursive
 //      int countPaths(int i,int j,int n,int m)
 //     {
 //         if(i==(n-1) && j==(m-1)) return 1;
@@ -13,6 +15,7 @@ public:
 //        return countPaths(0, 0, m, n);
 //     }
     
+    //dynamic 
         int countPaths(int i,int j,int n,int m,vector<vector<int>> &dp)
         {
             if(i==(n-1)&&j==(m-1)) return 1;
