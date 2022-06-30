@@ -39,9 +39,6 @@ public:
             dummyNode -> next = h2;
         }
         ListNode *head = dummy -> next;
-        // dummy -> next =  NULL;
-        // delete dummy;
         return head;
-        
     }
 };
