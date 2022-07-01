@@ -31,7 +31,7 @@ public:
         vector<int> unique;
         for(int i:nums){
             if(fmap.find(i) == fmap.end()){
-                unique.push_back(i);
+                unique.push_back(i); //unique is used so that we can pick [1,7] but we can avoid taking [7,1]
             }
             fmap[i]++;
         }
