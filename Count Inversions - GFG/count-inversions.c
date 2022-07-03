@@ -8,54 +8,50 @@
  // } Driver Code Ends
 //User function Template for C
 
-
-// arr[]: Input Array
-// N : Size of the Array arr[]
 // Function to count inversions in the array.
-long long int merge(long long arr[],long long l,long long mid,long long r){
-       long long int i=l;
-       long long int j=mid+1;
-       long long int k=l;
+long long int merge(long long arr[], long long l, long long mid, long long r){
+       long long int i = l;
+       long long int j = mid+1;
+       long long int k = l;
        long long int B[r+1]; //temp array
-       long long int count=0;
+       long long int count = 0;
         
-        while(i<=mid && j<=r){
-            if(arr[i]>arr[j]){
-                count+=mid-i+1; //extra line added in merge sort
-                B[k++]=arr[j++];
+        while(i <= mid && j <= r){
+            if(arr[i] > arr[j]){
+                count = count + mid-i+1; //extra line added in merge sort
+                B[k++] = arr[j++];
                 
             }
-            else B[k++]=arr[i++];
+            else B[k++] = arr[i++];
         }
         
-        while(i<=mid){
-            B[k++]=arr[i++];
+        while(i <= mid){
+            B[k++] = arr[i++];
         }
-        while(j<=r){
-            B[k++]=arr[j++];
+        while(j <= r){
+            B[k++] = arr[j++];
         }
         
-        for(int k=l;k<=r;k++){
-            arr[k]=B[k];
+        for(int k = l; k <= r; k++){
+            arr[k] = B[k];
         }
         return count;
-        
     }
-    long long int merge_sort(long long a[],long long si,long long ei){
-        if(si>=ei){
+    long long int merge_sort(long long a[], long long si, long long ei){
+        if(si >= ei){
             return 0;
         }
-        long long mid=(si+ei)/2;
-        long long int x=merge_sort(a,si,mid);
-        long long int y=merge_sort(a,mid+1,ei);
-        long long int z=merge(a,si,mid,ei);
+        long long mid = (si+ei)/2;
+        long long int x = merge_sort(a, si, mid);
+        long long int y = merge_sort(a, mid+1, ei);
+        long long int z = merge(a, si, mid, ei);
         return x+y+z;
     }
     
     long long int inversionCount(long long arr[], long long N)
     {
         // Your Code Here
-        return merge_sort(arr,0,N-1);
+        return merge_sort(arr, 0, N-1);
     }
 
 
