@@ -7,14 +7,14 @@ vector<int> find(int arr[], int n , int x )
 {
     // code here
     int a = -1, b = 0;
-    for(int i = 0; i<n; i++){
+    for(int i = 0; i < n; i++){
         if(arr[i] == x){
             a = i;
             break;
         }
     }
     
-    for(int j = n; j>0; j--){
+    for(int j = n; j > 0; j--){
         if(arr[j] == x){
             b = j;
             break;
