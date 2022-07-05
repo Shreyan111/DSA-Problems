@@ -1,44 +1,59 @@
 class Solution {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        sort(nums.begin(),nums.end());
+    vector<vector<int>> fourSum(vector<int>& num, int target) {
+        vector<vector<int>> res;
         
-        int n = nums.size();
+        if (num.empty())
+            return res;
         
-        set<vector<int>> data;
+        int n = num.size(); 
+        sort(num.begin(),num.end());
+    
+        for (int i = 0; i < n; i++) {
         
-        for(int i = 0; i < n-3; i++){
-            if(i > 0 and nums[i] == nums[i-1]){
-                continue;
-            }
+            long long int target_3 = target - num[i];
+        
+            for (int j = i + 1; j < n; j++) {
             
-            for(int j = i+1; j < n-2; j++){
-                long long int required = target*1LL - nums[i] - nums[j];
+                long long int target_2 = target_3 - num[j];
+            
+                long long int front = j + 1;
+                long long int back = n - 1;
+            
+                while(front < back) {
                 
-                if(j>i+1 and (nums[j] == nums[j-1])){
-                    continue;
-                }
+                    long long int two_sum = num[front] + num[back];
                 
-                int l = j+1;
-                int r = n-1;
-                
-                while(l<r){
-                    if(nums[l]+nums[r] == required){
-                        data.insert({nums[i], nums[j], nums[l], nums[r]});
-                        int temp = nums[l];
-                        l++;
-                        r--;
+                    if (two_sum < target_2){
+                        front++;
                     }
-                    else if (nums[l]+nums[r] > required)
-                        r--;
-                    else l++;
+                
+                    else if (two_sum > target_2){
+                        back--;
+                    }
+                
+                    else {
+                        vector<int> quadruplet(4, 0);
+                        quadruplet[0] = num[i];
+                        quadruplet[1] = num[j];
+                        quadruplet[2] = num[front];
+                        quadruplet[3] = num[back];
+                        res.push_back(quadruplet);
+                    
+                        // Processing the duplicates of number 3
+                        while (front < back && num[front] == quadruplet[2]) ++front;
+                    
+                        // Processing the duplicates of number 4
+                        while (front < back && num[back] == quadruplet[3]) --back;
+                
+                    }
                 }
+                // Processing the duplicates of number 2
+                while(j + 1 < n && num[j + 1] == num[j]) ++j;
             }
+            // Processing the duplicates of number 1
+            while (i + 1 < n && num[i + 1] == num[i]) ++i;
         }
-        vector<vector<int>> ans;
-        for(auto x:data){
-            ans.push_back(x);
-        }
-        return ans;
+        return res;
     }
 };
