@@ -14,7 +14,8 @@ class Solution {
         if (!vis[it]) {
           if (checkCycle(it, adj, vis, dfsVis)) 
           return true;
-        } else if (dfsVis[it]) {
+        } 
+        else if (dfsVis[it]) {
           return true;
         }
       }
