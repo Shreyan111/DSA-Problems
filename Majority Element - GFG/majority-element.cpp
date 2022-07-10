@@ -22,18 +22,18 @@ class Solution{
         for(int i = 0; i < size; i++)
             ans[a[i]]++;
         
-        int count = 0;
+        
         
         for(auto i : ans)
         {
             if(i.second > size / 2)
             {
-                count = 1;
+                
                 return i.first;
                 break;
             }
         }
-        if(count == 0)
+        
             return -1;
     }
 };
