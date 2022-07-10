@@ -13,7 +13,7 @@ public:
                 q2.push(q1.front());
                 q1.pop();
             }
-            q1.push(x);
+            q1.push(x); //only thing different from implementing queue using stack
             while(!q2.empty()){
                 q1.push(q2.front());
                 q2.pop();
