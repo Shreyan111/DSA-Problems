@@ -7,10 +7,8 @@ class Solution {
 	public:
 	string FirstNonRepeating(string A){
      // Code here
-     map<char,int> m;
+     map<char, int> m;
      vector<char> v;
-     int f = 0, k = 0;
-     char ch, pre;
      for(int i = 0; i < A.size(); i++){
          if(m.count(A[i]) > 0){
              m[A[i]] = 0;
