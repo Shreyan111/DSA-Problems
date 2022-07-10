@@ -22,8 +22,6 @@ class Solution{
         for(int i = 0; i < size; i++)
             ans[a[i]]++;
         
-        
-        
         for(auto i : ans)
         {
             if(i.second > size / 2)
@@ -33,8 +31,7 @@ class Solution{
                 break;
             }
         }
-        
-            return -1;
+        return -1;
     }
 };
 
