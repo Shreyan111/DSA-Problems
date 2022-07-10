@@ -10,7 +10,7 @@ public:
             s2.push(s1.top());
             s1.pop();
         }
-        s2.push(x); 
+        s2.push(x); //only thing different from implementing stack using queue
         
         while(!s2.empty()){
             s1.push(s2.top());
