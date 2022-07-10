@@ -4,11 +4,11 @@ public:
         vector<long long int>left;
         stack<long long int>s;
         
-		// finding smallest element index towards left (left boundary) == next greater element
+		// finding smallest element index towards left (left boundary) == left smaller element
         for(long long int i = 0; i < arr.size(); i++)
         {
             while(s.size() != 0 && arr[s.top()] >= arr[i])
-            {
+            {//if left element is greater than current then, pop...
                 s.pop();
             }
             
@@ -29,11 +29,11 @@ public:
          stack<long long int>ss;
          vector<long long int>right;
         
-		 // finding smallest element index towards right (right boundary) == previous greater element
+		 // finding smallest element index towards right (right boundary) == right smaller element
         for(long long int i = arr.size() - 1; i >= 0; i--)
         {
             while(ss.size() != 0 && arr[ss.top()] >= arr[i])
-            {
+            {//if right element is greater than current then, pop...
                 ss.pop();
             }
             
