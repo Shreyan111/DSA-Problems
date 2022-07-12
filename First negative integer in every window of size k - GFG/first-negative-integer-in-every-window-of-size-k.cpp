@@ -47,7 +47,7 @@ vector<long long> printFirstNegativeInteger(long long int A[],
           q.push(A[i + K - 1]);
        }
           
-       if(!q.empty()) //else if 
+       if(!q.empty()) //else if will not be here....difference between if and else if
        {
            if(A[i] == q.front())
            {
