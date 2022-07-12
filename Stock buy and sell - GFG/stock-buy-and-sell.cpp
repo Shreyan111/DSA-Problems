@@ -20,6 +20,41 @@ public:
        
        return res;
    }
+   
+//   vector<vector<int> > stockBuySell(vector<int> A, int n){
+//       vector<vector<int>> days;
+//       int buyDay=0,sellDay;
+//       for(int i=1;i<n;i++)
+//       {
+//           if(A[i]>A[i-1])
+//           {
+//               sellDay=i;
+//               if(i==n-1 && sellDay > buyDay)
+//               {
+//                   vector<int> d;
+//                   d.push_back(buyDay);
+//                   d.push_back(sellDay);
+//                   days.push_back(d);
+//               }
+//           }
+//           else
+//           {
+//               if(sellDay>buyDay)
+//               {
+//                   vector<int> d;
+//                   d.push_back(buyDay);
+//                   d.push_back(sellDay);
+//                   days.push_back(d);
+//               }
+//               buyDay=i;
+             
+//           }
+           
+           
+//       }
+//       return days;
+       
+//   }
 };
 
 // { Driver Code Starts.
