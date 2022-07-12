@@ -11,8 +11,7 @@ public:
 	// The main function that returns the arrangement with the largest value as
 	// string.
 	// The function accepts a vector of strings
-static bool comp(string &a,string &b)
-
+    static bool comp(string &a,string &b)
     {
 
         if(a+b>b+a)
@@ -24,8 +23,7 @@ static bool comp(string &a,string &b)
     }
 
     string printLargest(vector<string> &arr) {
-
-        vector<int>temp;
+        vector<int> temp;
 
         string ans; 
 
