@@ -13,6 +13,7 @@ class Solution {
       }
     }
     st.push(node);
+    return;
   }
   
   public:
