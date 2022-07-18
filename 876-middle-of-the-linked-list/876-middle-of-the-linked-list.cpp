@@ -14,6 +14,7 @@ public:
         ListNode *slow = head, *fast = head;
         
         //tortoise method
+        //while fast's next is not null and fast is also not null
         while(fast && fast->next){
             slow = slow -> next;
             fast = fast -> next -> next;
