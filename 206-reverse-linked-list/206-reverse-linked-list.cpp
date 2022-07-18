@@ -11,13 +11,15 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode* newHead = NULL;
+        ListNode* dummy = NULL; //giving dummy node value as null
+        
+        //iterative approach to check until head is null
         while(head != NULL){
-            ListNode* next = head -> next;
-            head -> next = newHead;
-            newHead = head;
-            head = next;
+            ListNode* next = head -> next; //assign head's next as next
+            head -> next = dummy; //assigning new next value of head
+            dummy = head; //newHead will be head
+            head = next; //head will be next
         }
-        return newHead;
+        return dummy;
     }
 };
