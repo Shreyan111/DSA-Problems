@@ -28,7 +28,7 @@ public:
                 dummyNode = h2;
                 h2 = h2 -> next;
             }
-            dummyNode -> next = NULL;
+            dummyNode -> next = NULL; //just pointing next of dummynode as null in every iteration
         }
         
         if(h1){
