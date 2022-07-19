@@ -22,11 +22,13 @@ public:
         
         int count = 0;
         
+        //for counting the total number of linked list
         while(cur -> next != NULL){
             cur = cur -> next;
             count++;
         }
         
+        //condition to reverse in k groups
         while(count >= k){
             cur = pre -> next;
             next = cur -> next;
