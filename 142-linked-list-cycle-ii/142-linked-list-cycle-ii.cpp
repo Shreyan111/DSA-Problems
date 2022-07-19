@@ -21,7 +21,8 @@ public:
             if(mapping[temp] != 0){
                 return temp;
             }
-            mapping[temp] = i++;
+            mapping[temp] = i;
+            i++;
             temp = temp -> next;
         }
         return NULL;
