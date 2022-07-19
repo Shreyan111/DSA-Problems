@@ -9,16 +9,16 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        set <ListNode*> hash;
+        set <ListNode*> hash; //stores the address of each node
         
         ListNode* curr = headA;
-        while(curr){
+        while(curr != NULL){
             hash.insert(curr);
             curr = curr -> next;
         }
         
         curr = headB;
-        while(curr){
+        while(curr != NULL){
             if(hash.find(curr) != hash.end())
                 return curr;
             curr= curr -> next;
