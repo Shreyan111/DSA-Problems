@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void subset(int ind, vector<int>& nums, vector<vector<int>>&ans, vector<int>ds )
+    void subset(int ind, vector<int>& nums, vector<vector<int>>&ans, vector<int>& ds )
     {
         ans.push_back(ds);
         for(int i = ind; i < nums.size(); i++)
@@ -17,7 +17,9 @@ public:
         vector<vector<int>>ans;
         sort(nums.begin(),nums.end());
         vector<int>ds;
+        
         subset(0, nums, ans, ds);
+        
         return ans;
     }
 };
