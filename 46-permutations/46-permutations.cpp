@@ -1,39 +1,31 @@
-// class Solution {
-// public:
-//     vector<vector<int>> permute(vector<int>& nums) {
-//         vector<vector<int>> ans;
-//         sort(nums.begin(),nums.end());
-//         do 
-//         {
-//             ans.push_back(nums);
-//         }
-//         while(next_permutation(nums.begin(),nums.end()));
-        
-//         return ans;
-//     }
-// };
-
-
 class Solution {
-public:
-    void permutation(vector<int> &nums, int index, vector<vector<int>>&ans)
-    {
-        if(index >= nums.size())
-        {
-            ans.push_back(nums);
-            return;
+  private:
+    void recurPermute(vector < int > & ds, vector < int > & nums, vector < vector < int >> & ans, int freq[]) {
+      if (ds.size() == nums.size()) {
+        ans.push_back(ds);
+        return;
+      }
+      for (int i = 0; i < nums.size(); i++) {
+        if (!freq[i]) {
+          ds.push_back(nums[i]);
+          freq[i] = 1;
+          recurPermute(ds, nums, ans, freq);
+            
+            //backtrack
+          freq[i] = 0;
+          ds.pop_back();
         }
-        
-        for(int i = index; i < nums.size(); i++)
-        {
-            swap(nums[index], nums[i]);
-            permutation(nums, index + 1, ans);
-            swap(nums[index], nums[i]); //backtrack
-        }
+      }
     }
-    vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> ans;
-        permutation(nums, 0, ans);
-        return ans;
+  public:
+    vector <vector<int>> permute(vector<int>& nums) {
+      vector<vector<int>> ans;
+      vector<int> ds;
+      int freq[nums.size()];
+      for (int i = 0; i < nums.size(); i++){
+          freq[i] = 0;
+      }
+      recurPermute(ds, nums, ans, freq);
+      return ans;
     }
 };
