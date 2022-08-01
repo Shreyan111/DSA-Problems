@@ -35,10 +35,13 @@ public:
         }
   
         vector<vector< int >> ans;
+        //iterate each vertical
         for (auto p: nodes) {
             vector<int> col;
+            //iterate the level and nodes in that vertical
             for (auto q: p.second) {
-                col.insert(col.end(), q.second.begin(), q.second.end());
+                //insert nodes present in the level of each vertical
+                col.insert(col.end(), q.second.begin(), q.second.end());//multiple nodes can be also present in each level
             }
             ans.push_back(col);
         }
