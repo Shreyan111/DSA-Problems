@@ -1,0 +1,40 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool condition(TreeNode* root, long low ,long high){
+        
+        // Empty trees are valid BSTs.
+        if(root == NULL){
+            return true;
+        }
+        
+        // Condition of Binary Search Tree 
+        // left side node values of the root should be less value than the root and right side should be greater
+        // If that is true check recursivley for the root child's
+        
+        if((root -> val < high) && (root -> val > low)){
+          return (condition(root -> left, low, root -> val) && condition(root -> right, root -> val, high));
+
+        }
+        else{
+            //if this root node violates the min/max constraint
+            return false;
+        }
+        
+    }
+    
+    bool isValidBST(TreeNode* root) {
+        bool ans = condition(root, LONG_MIN, LONG_MAX);
+        return ans;
+    }
+};
