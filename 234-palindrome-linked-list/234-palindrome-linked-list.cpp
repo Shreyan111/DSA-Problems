@@ -15,7 +15,7 @@ public:
         stack<int> st;
         while(temp != NULL){
             st.push(temp -> val);
-            temp = temp->next;
+            temp = temp -> next;
         }
         
         temp = head;
