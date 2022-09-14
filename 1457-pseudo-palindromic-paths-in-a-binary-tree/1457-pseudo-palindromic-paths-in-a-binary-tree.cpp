@@ -18,6 +18,7 @@ public:
         
         maps[root -> val]++;
             
+        //checking in leaf node
         if(root -> left == NULL & root -> right == NULL){
             int z = 0;
             
