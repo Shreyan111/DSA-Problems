@@ -9,20 +9,75 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// class Solution {
+//   TreeNode * prev = NULL;
+//   public:
+//     void flatten(TreeNode* root) {
+//       if (root == NULL){
+//           return;
+//       }
+
+//       flatten(root -> right);
+//       flatten(root -> left);
+
+//       root -> right = prev;
+//       root -> left = NULL;
+//       prev = root;
+//     }
+
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Solution {
-  TreeNode * prev = NULL;
+    TreeNode* prev = NULL;
   public:
     void flatten(TreeNode* root) {
-      if (root == NULL){
-          return;
-      }
-
-      flatten(root -> right);
-      flatten(root -> left);
-
-      root -> right = prev;
-      root -> left = NULL;
-      prev = root;
+        if(root == NULL){
+            return;
+        }
+        
+        //need in preorder traversal
+        flatten(root -> right);
+        flatten(root -> left);
+        
+        root -> right = prev;
+        root -> left = NULL; //given
+        prev = root;
     }
-
 };
