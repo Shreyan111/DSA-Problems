@@ -3,7 +3,7 @@ public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
         int r = mat.size();
         int c = mat[0].size();
-        queue<pair<int,int>> q;
+        queue<pair<int, int>> q;
         vector<vector<int>> ans(r,vector<int>(c,-1));
     
         for(int i = 0; i < r; i++)
