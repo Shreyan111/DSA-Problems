@@ -4,33 +4,31 @@ using namespace std;
 
 
 // } Driver Code Ends
-
 class Solution {
   public:
-  int f(int ind, vector<int>& height, vector<int>& dp, int k){
-    if(ind == 0) return 0;
-    
-    int steps = INT_MAX;
-    int jump;
-    
-    if(dp[ind] != -1) return dp[ind];
+    int find(vector<int>& height, int index, int k, vector<int>& dp){
+        if(index == 0) return 0;
         
-    for(int j = 1; j <= k; j++){
-        if(ind - j >= 0){
-            jump = f(ind - j, height, dp, k)+ abs(height[ind] - height[ind - j]);
-            steps = min(jump, steps);
-            dp[ind] = steps;
+        if(dp[index] != -1) return dp[index];
+        
+        int cost = INT_MAX;
+        int jumps;
+        
+        for(int j = 1; j <= k; j++){
+            if(index - j >= 0){
+                jumps = find(height, index - j, k, dp) + abs(height[index] - height[index - j]);
+                cost = min(cost, jumps);
+                dp[index] = cost;
+            }
         }
-    }
-    return dp[ind];
+        return cost;
     }
     int minimizeCost(vector<int>& height, int n, int k) {
         // Code here
         vector<int> dp(n + 1, -1);
-        return f(n - 1, height, dp, k);
+        return find(height, n - 1, k, dp);
     }
 };
-
 
 //{ Driver Code Starts.
 
