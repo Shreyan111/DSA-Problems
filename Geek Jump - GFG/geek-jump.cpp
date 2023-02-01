@@ -6,19 +6,20 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-    int f(int ind, vector<int>& height, vector<int>& dp){
-        if(ind == 0) return 0;
+    int f(int index, vector<int>& height, vector<int>& dp){
         
-        if(dp[ind] != -1) return dp[ind];
+        if(index == 0) return 0;
+        
+        if(dp[index] != -1) return dp[index];
         
         int jump_two = INT_MAX;
-        int jump_one = f(ind - 1, height, dp) + abs(height[ind] - height[ind - 1]);
+        int jump_one = f(index - 1, height, dp) + abs(height[index] - height[index - 1]);
         
-        if(ind > 1){
-            jump_two = f(ind - 2, height, dp) + abs(height[ind] - height[ind - 2]);
+        if(index > 1){
+            jump_two = f(index - 2, height, dp) + abs(height[index] - height[index - 2]);
         }
         
-        return dp[ind] = min(jump_one, jump_two);
+        return dp[index] = min(jump_one, jump_two);
     }
     int minimumEnergy(vector<int>& height, int n) {
         // Code here
