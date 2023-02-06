@@ -7,30 +7,29 @@ using namespace std;
 class Solution
 {
     public:
-    int knapsackUtil(int wt[], int val[], int ind, int W, vector<vector<int>>& dp){
-        
-        if(ind == 0){
+    int find(int* wt, int* val, int W, int index, vector<vector<int>>& dp){
+        if(index == 0){
             if(wt[0] <= W) return val[0];
             else return 0;
         }
         
-        if(dp[ind][W] != -1) return dp[ind][W];
+        if(dp[index][W] != -1) return dp[index][W];
         
-        int not_take = knapsackUtil(wt, val, ind - 1, W, dp);
-        int take = INT_MIN;
+        int notTaken = find(wt, val, W, index - 1, dp);
+        int taken = INT_MIN;
         
-        if(wt[ind] <= W){
-            take = val[ind] + knapsackUtil(wt, val, ind - 1, W - wt[ind], dp);
+        if(wt[index] <= W){
+            taken = val[index] + find(wt, val, W - wt[index], index - 1, dp);
         }
         
-        return dp[ind][W] = max(not_take, take);
+        return dp[index][W] = max(taken, notTaken);
     }
     //Function to return max value that can be put in knapsack of capacity W.
     int knapSack(int W, int wt[], int val[], int n) 
     { 
        // Your code here
        vector<vector<int>> dp(n, vector<int>(W + 1, -1));
-       return knapsackUtil(wt, val, n - 1, W, dp);
+       return find(wt, val, W, n - 1, dp);
     }
 };
 
