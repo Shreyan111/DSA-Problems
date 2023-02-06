@@ -9,18 +9,18 @@ using namespace std;
 
 class Solution{   
 public:
-    bool f(int index, int target, vector<int>& arr, vector<vector<int>> &dp){
+    bool find(int index, vector<int>& arr, int target, vector<vector<int>>& dp){
         if(target == 0) return true;
         
         if(index == 0) return arr[0] == target;
         
         if(dp[index][target] != -1) return dp[index][target];
         
-        bool notTaken = f(index - 1, target, arr, dp);
+        bool notTaken = find(index - 1, arr, target, dp);
         bool taken = false;
         
         if(arr[index] <= target){
-            taken = f(index - 1, target - arr[index], arr, dp);
+            taken = find(index - 1, arr, target - arr[index], dp);
         }
         
         return dp[index][target] = notTaken || taken;
@@ -29,7 +29,7 @@ public:
         // code here 
         int n = arr.size();
         vector<vector<int>> dp(n, vector<int>(sum + 1, -1));
-        return f(n - 1, sum, arr, dp);
+        return find(n - 1, arr, sum, dp);
     }
 };
 
