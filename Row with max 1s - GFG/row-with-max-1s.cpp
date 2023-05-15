@@ -1,33 +1,50 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 //User function template for C++
+
 class Solution{
 public:
-    int rowWithMax1s(vector<vector<int> > arr, int n, int m) {
-        // code here
-        int row = 0;
-        int col = m-1;
-        int ans = -1;
-        while(row < n){
-            for(int j = col; j >= 0; j--)
-            {
-                if(arr[row][j] == 1){
-                    col--;
-                    ans = row;
-                }
-                else if(arr[row][j] == 0)
-                    break;
+
+
+    int bs(int i,int l,int h, vector<int>&arr){
+        int low=l;
+        int high=h;
+        
+        int ans=INT_MIN;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            
+            if(arr[mid]==1){
+                ans=mid;
+                high=mid-1;
             }
-        row++;
+            else{
+                low=mid+1;
+            }
         }
-    return ans;
+        return ans;
     }
+int rowWithMax1s(vector<vector<int>>arr, int n, int m) {
+   int maxi=0;
+   int row=-1;
+   for(int i=0;i<n;i++){
+       int ind=bs(i,0,m-1,arr[i]);
+       if(maxi<m-ind){
+           maxi=m-ind;
+           row=i;
+       }
+   }
+   return row;
+}
+
+
 };
 
-// { Driver Code Starts.
+
+//{ Driver Code Starts.
 int main() {
     int t;
     cin >> t;
@@ -46,4 +63,5 @@ int main() {
     }
     return 0;
 }
-  // } Driver Code Ends
+
+// } Driver Code Ends
